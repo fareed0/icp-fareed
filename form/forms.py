@@ -44,6 +44,7 @@ class ProcReportForm(forms.ModelForm):
         fields = '__all__'
         exclude = ['patient']
         widgets = {
+            'date': DateInput(),
             'ultrasound_1': forms.RadioSelect,
             'ultrasound_2': forms.RadioSelect,
             'ultrasound_3': forms.RadioSelect,
