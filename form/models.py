@@ -25,6 +25,7 @@ class Patient(models.Model):
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
     patient_id = models.CharField(max_length=100)
+    date_of_birth = models.DateField()
 
     def name(self):
         return str(self.first_name + " " + self.last_name).upper()

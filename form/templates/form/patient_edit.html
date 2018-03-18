@@ -27,6 +27,7 @@
                   <th>First Name</th>
                   <th>Last Name</th>
                   <th>Patient ID</th>
+                  <th>Date of Birth</th>
                 </tr>
               </thead>
               <tfoot>
@@ -34,6 +35,7 @@
                   <th>First Name</th>
                   <th>Last Name</th>
                   <th>Patient ID</th>
+                  <th>Date of Birth</th>
                 </tr>
               </tfoot>
               <tbody>
@@ -42,6 +44,7 @@
                   <td><a href="{% url 'get_patient_information' p.patient_id %}" </a>{{p.first_name}}</td>
                   <td><a href="{% url 'get_patient_information' p.patient_id %}" </a>{{p.last_name}}</td>
                   <td><a href="{% url 'get_patient_information' p.patient_id %}" </a>{{p.patient_id}}</td>
+                  <td><a href="{% url 'get_patient_information' p.patient_id %}" </a>{{p.date_of_birth}}</td>
                 </tr>
               {% endfor %}
               </tbody>

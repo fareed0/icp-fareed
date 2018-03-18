@@ -20,7 +20,9 @@ class PatientForm(forms.ModelForm):
     class Meta:
         model = Patient
         fields = '__all__'
-
+        widgets = {
+            'date_of_birth': DateInput(),
+        }
 
 class MedClerkPreSedForm(forms.ModelForm):
     patient = MedClerkPreSed.patient
