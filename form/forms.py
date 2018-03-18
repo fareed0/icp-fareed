@@ -2,6 +2,9 @@ from django import forms
 from .models import *
 
 
+class DateInput(forms.DateInput):
+    input_type = 'date'
+    
 class JQueryUIDatepickerWidget(forms.DateInput):
     def __init__(self, **kwargs):
         super(forms.DateInput, self).__init__(attrs={"size":10, "class": "dateinput"}, **kwargs)
@@ -27,9 +30,9 @@ class MedClerkPreSedForm(forms.ModelForm):
         fields = '__all__'
         exclude = ['patient']
         widgets = {
-            'met_time': JQueryUIDatepickerWidget,
-            'oral_sedation_time': JQueryUIDatepickerWidget,
-            'ametop_applied_time': JQueryUIDatepickerWidget,
+            'met_time': DateInput(),
+            'oral_sedation_time': DateInput(),
+            'ametop_applied_time': DateInput(),
         }
 
 
@@ -59,10 +62,6 @@ class ProcReportForm(forms.ModelForm):
             'sedation_effective_no': forms.Textarea(attrs={'placeholder': 'If no, then details of ineffective sedation'}),
         }
 
-class DateInput(forms.DateInput):
-    input_type = 'date'
-
-
 class PostInject1Form(forms.ModelForm):
     patient  = PostInject1.patient
 
@@ -84,6 +83,6 @@ class ConcOfTreatmentForm(forms.ModelForm):
         exclude = ['patient']
         widgets = {
             'date': DateInput(),
-            'last_injection': JQueryUIDatepickerWidget,
-            'timeframe': JQueryUIDatepickerWidget,
+            'last_injection': DateInput(),
+            'timeframe': DateInput(),
         }
